@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WMS Simulator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <span class="logo"><span class="logo-mark"></span>WMS Simulator</span>
+      <span class="divider"></span>
+      <span class="info">Тик: <b id="tickInfo">0</b></span>
+      <span class="info">Счет команды: <b id="teamScore">100.0</b></span>
+    </div>
+    <div class="controls">
+      <button id="pauseBtn" class="btn">Пауза</button>
+      <button id="playBtn" class="btn active">Запуск</button>
+      <button id="speed1" class="btn speed active">x1</button>
+      <button id="speed2" class="btn speed">x2</button>
+      <button id="speed5" class="btn speed">x5</button>
+      <button id="incidentBtn" class="btn danger">Инцидент</button>
+      <button id="resetBtn" class="btn">Сброс</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="canvas-wrapper">
+      <div class="stage">
+        <canvas id="warehouseCanvas"></canvas>
+        <div class="legend">
+          <span><i style="background:#FFD6A8"></i>малая коробка 1×1</span>
+          <span><i style="background:#D9C9FF"></i>большая коробка 2×2</span>
+          <span><i style="background:rgba(88,123,213,.2)"></i>приёмка</span>
+          <span><i style="background:rgba(240,130,175,.25)"></i>отгрузка</span>
+          <span><i style="background:rgba(255,214,168,.5)"></i>у стены сброс без штрафа</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="panel">
+        <div class="panel-title">Заказы в работе</div>
+        <div id="ordersList" class="list"></div>
+      </div>
+      
+      <div class="panel">
+        <div class="panel-title">Роботы</div>
+        <div id="agentsList" class="list"></div>
+      </div>
+
+      <div class="panel flex-1" style="min-height: 150px;">
+        <div class="panel-title">Лог системы</div>
+        <div id="eventLog" class="log"></div>
+      </div>
+
+      <div class="panel flex-1" style="min-height: 150px;">
+        <div class="panel-title">Радиосвязь роботов</div>
+        <div id="chatLog" class="log" style="color: var(--text);"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
